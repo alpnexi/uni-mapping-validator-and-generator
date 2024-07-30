@@ -1,0 +1,26 @@
+package eu.nets.mapping.components.auth.trg.dk.merchant.nds.iso8583_to_umm.message_mappers;
+
+import eu.nets.uni.mapping.components.core.auth.iso8583.context.ISO8583MessageContext;
+import eu.nets.uni.mapping.components.core.auth.iso8583_umm.mapper.AbstractUniMessageMappingDelegator;
+import eu.nets.uni.mapping.components.core.auth.umm.delegator.v001.MessageHeaderMapperDelegator;
+import eu.nets.uni.mapping.components.core.auth.umm.delegator.v001.UniMessageMapperDelegator;
+import eu.nets.uni.mapping.components.core.context.MappingContext;
+
+import static eu.nets.mapping.components.auth.trg.iso8583_to_umm.field_mappers.hdr.MessageFunctionMapper.messageFunctionMapper;
+
+/**
+ * Mapping of {{ message_function }} messages from ISO8583 to UMM.
+ */
+public class {{ class_name }} extends AbstractUniMessageMappingDelegator {
+
+    public {{ class_name }}() {
+        super(
+                UniMessageMapperDelegator.<ISO8583MessageContext, MappingContext>builder()
+                        .hdrMapper(MessageHeaderMapperDelegator.<ISO8583MessageContext, MappingContext>builder()
+                                .msgFctnMapper(messageFunctionMapper())
+                                .build()
+                        )
+                        .build()
+        );
+    }
+}

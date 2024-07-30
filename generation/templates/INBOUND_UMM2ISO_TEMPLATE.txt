@@ -1,0 +1,21 @@
+package eu.nets.mapping.components.auth.trg.dk.merchant.umm_to_iso8583.message_mappers;
+
+import eu.nets.uni.mapping.components.core.auth.iso8583.delegator.DataElementMapperDelegator;
+import eu.nets.uni.mapping.components.core.auth.umm.context.UniMessageContext;
+import eu.nets.uni.mapping.components.core.auth.umm_iso8583.mapper.AbstractDataElementMappingDelegator;
+import eu.nets.uni.mapping.components.core.context.MappingContext;
+
+import static eu.nets.mapping.components.auth.trg.umm_to_iso8583.common.MessageFunctionToMessageTypeIndicatorImpl.messageTypeIndicatorMapper;
+
+/**
+ * Implementation of {{ message_function }} message mapper.
+ */
+public class {{ class_name }} extends AbstractDataElementMappingDelegator {
+    public {{ class_name }}() {
+        super(
+                messageTypeIndicatorMapper(),
+                DataElementMapperDelegator.<UniMessageContext, MappingContext>builder()
+                        .build()
+        );
+    }
+}
